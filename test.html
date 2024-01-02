@@ -1,72 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+  <title>Something</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Your existing CSS styles remain unchanged */
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: Arial;
+    }
 
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
+    .citc_nav {
+      list-style: none;
+      background: #fff;
+    }
 
-        .image-item {
-            position: relative;
-            flex: 0 0 25%;
-            padding: 10px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
+    .citc_nav li {
+      display: inline-block;
+      position: relative;
+    }
 
-        .image-item img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.3s ease-in-out;
-        }
+    .citc_nav li a {
+      display: block;
+      padding: 20px;
+      color: #080147;
+      text-decoration: none;
+      text-align: center;
+      font-size: 18px;
+      position: relative;
+      font-weight: bold;
+    }
 
-        .image-item:hover img {
-            transform: scale(1.1);
-        }
+    .citc_nav li ul.dropdown li {
+      display: block;
+    }
 
-        .learn-more-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
+    .citc_nav li ul.dropdown {
+      width: 100%;
+      position: absolute;
+      z-index: 999;
+      display: none;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-        .image-item:hover .learn-more-btn {
-            opacity: 1;
-        }
-    </style>
+    .citc_nav li a:hover {
+      color: #F7B424;
+    }
+
+    .citc_nav li:hover ul.dropdown {
+      display: block;
+    }
+
+    .citc_nav li ul li a {
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .citc_nav li a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #141267;
+      opacity: 0;
+      transition: opacity 0.5s, background-color 0.5s;
+    }
+
+    .citc_nav li a:hover::before {
+      opacity: 1;
+      background-color: #F7B424;
+    }
+
+    ul li img {
+      width: 120px;
+      margin-bottom: -20px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .citc_nav li:not(:first-child) {
+        display: none;
+      }
+
+      .citc_nav li.icon {
+        display: block;
+        float: right;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .citc_nav.responsive {
+        position: relative;
+      }
+
+      .citc_nav.responsive li.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .citc_nav.responsive li {
+        display: block;
+        text-align: left;
+      }
+    }
+
+    .citc_nav a img {
+      width: 120px;
+      margin-bottom: -20px;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="image-container">
-        <div class="image-item">
-            <img src="images/icons/1.png" alt="Image 1">
-            <button class="learn-more-btn">Learn More</button>
-        </div>
-        <div class="image-item">
-            <img src="images/icons/2.png" alt="Image 2">
-            <button class="learn-more-btn">Learn More</button>
-        </div>
-        <div class="image-item">
-            <img src="images/icons/3.png" alt="Image 3">
-            <button class="learn-more-btn">Learn More</button>
-        </div>
-        <div class="image-item">
-            <img src="images/icons/4.png" alt="Image 4">
-            <button class="learn-more-btn">Learn More</button>
-        </div>
-    </div>
+  <ul class="citc_nav">
+    <!-- Replace text content with an image tag -->
+    <li class="icon">
+      <a href="javascript:void(0);" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </li>
+    <li><a href="ustp.edu.ph/cdeo/citc"><img src="images/CITC Logo.png" alt="CITC Logo"></a></li>
+    <li><a href="#">About Us</a></li>
+    <li>
+      <a href="#">Departments 🠷</a>
+      <ul class="dropdown">
+        <li><a href="#">Information Technology</a></li>
+        <li><a href="#">Technology Communication and Management</a></li>
+        <li><a href="#">Data Science</a></li>
+        <li><a href="#">Computer Science</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Offered Programs 🠷</a>
+      <ul class="dropdown">
+        <li><a href="#">Undergraduate Programs</a></li>
+        <li><a href="#">Graduate Programs</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Student Life</a></li>
+  </ul>
+
+  <script>
+    function myFunction() {
+      var x = document.querySelector(".citc_nav");
+      if (x.className === "citc_nav") {
+        x.className += " responsive";
+      } else {
+        x.className = "citc_nav";
+      }
+    }
+  </script>
 </body>
+
 </html>

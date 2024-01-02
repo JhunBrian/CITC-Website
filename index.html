@@ -1,95 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Faculty Grid</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Something</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f5f5f5;
-    }
+  body {
+    font-family: Arial;
+    margin: 0px;
+  }
 
-    .grid-container {
-      display: flex;
-      justify-content: center;
-    }
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+  }
 
-    .faculty-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1200px; /* Optional: Set a maximum width for the grid */
-      width: 100%;
-    }
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: #1a1851;
+    text-align: center;
+/*    padding: 14px 16px;*/
+    display: inline-block;
+    text-decoration: none;
+  }
 
-    .faculty-card {
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
+  .navbar a img {
+    width: 120px;
+    margin-bottom: 20px;
+  }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
 
-    h2 {
-      margin-top: 10px;
-    }
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+/*    padding: 14px 16px;*/
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
 
-    p {
-      margin-bottom: 10px;
-    }
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
   </style>
 </head>
 
 <body>
-  <div class="grid-container">
-    <div class="faculty-grid">
-      <!-- Faculty 1 -->
-      <div class="faculty-card">
-        <img src="images/CITC DS Matthew.jpg" alt="Faculty 1 Image">
-        <h3>Matthew Maulion MSc.</h3>
-        <p>Data Science Assistant Professor</p>
-        <p>MS in Data Science, Asian Institute of Managament</p>
-        <p>Research Interests: Artificial Intelligence, Machine Learning</p>
+  <div class="navbar">
+    <a href="#"><img src="images/CITC Logo.png"></a>
+    <a href="#">About Us</a>
+    <div class="dropdown">
+      <button class="dropbtn">Departments 🠷</button>
+      <div class="dropdown-content">
+        <a href="#">Information Technology</a>
+        <a href="#">Technology Communication and Management</a>
+        <a href="#">Data Science</a>
+        <a href="#">Computer Science</a>
       </div>
-
-      <!-- Faculty 2 -->
-      <div class="faculty-card">
-        <img src="images/CITC DS Matthew.jpg" alt="Faculty 2 Image">
-        <h2>Dr. Jane Smith</h2>
-        <p>Associate Professor of Mathematics</p>
-        <p>Ph.D. in Mathematics, University of ABC</p>
-        <p>Research Interests: Number Theory, Algebra</p>
-      </div>
-
-      <!-- Faculty 2 -->
-      <div class="faculty-card">
-        <img src="images/CITC DS Matthew.jpg" alt="Faculty 2 Image">
-        <h2>Dr. Jane Smith</h2>
-        <p>Associate Professor of Mathematics</p>
-        <p>Ph.D. in Mathematics, University of ABC</p>
-        <p>Research Interests: Number Theory, Algebra</p>
-      </div>
-
-      <!-- Faculty 2 -->
-      <div class="faculty-card">
-        <img src="images/CITC DS Matthew.jpg" alt="Faculty 2 Image">
-        <h2>Dr. Jane Smith</h2>
-        <p>Associate Professor of Mathematics</p>
-        <p>Ph.D. in Mathematics, University of ABC</p>
-        <p>Research Interests: Number Theory, Algebra</p>
-      </div>
-
     </div>
+    <div class="dropdown">
+      <button class="dropbtn">Programs 🠷</button>
+      <div class="dropdown-content">
+        <a href="#">Undergraduate</a>
+        <a href="#">Graduate</a>
+      </div>
+    </div>
+    <a href="#">Student Life</a>
   </div>
 </body>
-
 </html>
