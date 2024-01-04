@@ -1,160 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Something</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Your existing CSS styles remain unchanged */
-    * {
-      padding: 0;
+    body {
       margin: 0;
-      font-family: Arial;
+      font-family: 'Arial', sans-serif;
     }
 
-    .citc_nav {
-      list-style: none;
-      background: #fff;
-    }
-
-    .citc_nav li {
-      display: inline-block;
-      position: relative;
-    }
-
-    .citc_nav li a {
-      display: block;
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
       padding: 20px;
-      color: #080147;
-      text-decoration: none;
-      text-align: center;
-      font-size: 18px;
+    }
+
+    .grid-item {
       position: relative;
-      font-weight: bold;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .citc_nav li ul.dropdown li {
-      display: block;
-    }
-
-    .citc_nav li ul.dropdown {
+    .grid-item img {
       width: 100%;
-      position: absolute;
-      z-index: 999;
-      display: none;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .citc_nav li a:hover {
-      color: #F7B424;
-    }
-
-    .citc_nav li:hover ul.dropdown {
+      height: auto;
       display: block;
     }
 
-    .citc_nav li ul li a {
-      font-size: 12px;
-      text-align: left;
-    }
-
-    .citc_nav li a::before {
-      content: '';
+    .overlay {
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
       width: 100%;
-      height: 2px;
-      background: #141267;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       opacity: 0;
-      transition: opacity 0.5s, background-color 0.5s;
+      transition: opacity 0.3s ease-in-out;
     }
 
-    .citc_nav li a:hover::before {
+    .grid-item:hover .overlay {
       opacity: 1;
-      background-color: #F7B424;
     }
 
-    ul li img {
-      width: 120px;
-      margin-bottom: -20px;
+    .overlay-content {
+      text-align: center;
     }
 
-    @media screen and (max-width: 600px) {
-      .citc_nav li:not(:first-child) {
-        display: none;
-      }
-
-      .citc_nav li.icon {
-        display: block;
-        float: right;
-      }
-    }
-
-    @media screen and (max-width: 600px) {
-      .citc_nav.responsive {
-        position: relative;
-      }
-
-      .citc_nav.responsive li.icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
-      .citc_nav.responsive li {
-        display: block;
-        text-align: left;
-      }
-    }
-
-    .citc_nav a img {
-      width: 120px;
-      margin-bottom: -20px;
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      cursor: pointer;
     }
   </style>
 </head>
-
 <body>
-  <ul class="citc_nav">
-    <!-- Replace text content with an image tag -->
-    <li class="icon">
-      <a href="javascript:void(0);" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </li>
-    <li><a href="ustp.edu.ph/cdeo/citc"><img src="images/CITC Logo.png" alt="CITC Logo"></a></li>
-    <li><a href="#">About Us</a></li>
-    <li>
-      <a href="#">Departments 🠷</a>
-      <ul class="dropdown">
-        <li><a href="#">Information Technology</a></li>
-        <li><a href="#">Technology Communication and Management</a></li>
-        <li><a href="#">Data Science</a></li>
-        <li><a href="#">Computer Science</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#">Offered Programs 🠷</a>
-      <ul class="dropdown">
-        <li><a href="#">Undergraduate Programs</a></li>
-        <li><a href="#">Graduate Programs</a></li>
-      </ul>
-    </li>
-    <li><a href="#">Student Life</a></li>
-  </ul>
 
-  <script>
-    function myFunction() {
-      var x = document.querySelector(".citc_nav");
-      if (x.className === "citc_nav") {
-        x.className += " responsive";
-      } else {
-        x.className = "citc_nav";
-      }
-    }
-  </script>
+<div class="grid-container">
+  <div class="grid-item">
+    <img src="image1.jpg" alt="Image 1">
+    <div class="overlay">
+      <div class="overlay-content">
+        <h3>Image 1 Details</h3>
+        <p>Description of Image 1.</p>
+        <span class="close-btn" onclick="closeOverlay(this)">Close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add more grid items as needed -->
+
+</div>
+
+<script>
+  function closeOverlay(element) {
+    element.parentElement.parentElement.style.opacity = 0;
+  }
+</script>
+
 </body>
-
 </html>
